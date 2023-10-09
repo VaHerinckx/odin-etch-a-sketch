@@ -1,6 +1,6 @@
 let submitButton = document.querySelector("button");
 let container = document.querySelector(".container")
-let inputSize = 10;
+let inputSize = 16;
 
 generateGrid(inputSize);
 submitButton.addEventListener('click', () => {
@@ -33,14 +33,6 @@ boxes.forEach((box) => {
   })
 })
 }
-
-
-boxes = document.querySelectorAll(".box")
-boxes.forEach((box) => {
-  box.addEventListener('mouseover', (event) => {
-    box.style["background-color"] = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
-  })
-});
 
 function randomRGB () {
   return (Math.round(Math.random()*255)).toString();
