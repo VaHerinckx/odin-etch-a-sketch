@@ -5,6 +5,7 @@ let inputSize = 10;
 generateGrid(inputSize);
 submitButton.addEventListener('click', () => {
   inputSize = document.getElementById("inputSize").value;
+  inputSize = inputSize > 100 ? 100 : inputSize;
   removeGrid ()
   generateGrid(inputSize);
 })
@@ -25,12 +26,24 @@ for (j=1; j<=frames; j++) {
   }
   container.appendChild(rowBox);
 }
-let boxes = document.querySelectorAll(".box")
+boxes = document.querySelectorAll(".box")
 boxes.forEach((box) => {
   box.addEventListener('mouseover', (event) => {
-    box.classList.add("permahover");
+    box.style["background-color"] = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
   })
 })
+}
+
+
+boxes = document.querySelectorAll(".box")
+boxes.forEach((box) => {
+  box.addEventListener('mouseover', (event) => {
+    box.style["background-color"] = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
+  })
+});
+
+function randomRGB () {
+  return (Math.round(Math.random()*255)).toString();
 }
 
 function removeGrid () {
